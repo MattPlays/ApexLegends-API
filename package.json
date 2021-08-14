@@ -1,0 +1,37 @@
+{
+  "name": "apex-legends-api",
+  "version": "0.0.1",
+  "description": "This package is a wrapper for the Apex Legends(Mozambiquehe) API",
+  "main": "ApexLegendsAPI.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MattPlays/ApexLegends-API.git"
+  },
+  "keywords": [
+    "API",
+    "Apex",
+    "Legends",
+    "Game",
+    "Lifeline",
+    "Seer",
+    "Bloodhound",
+    "Wraith",
+    "Apex",
+    "Video",
+    "Game",
+    "API",
+    "GameAPICenter"
+  ],
+  "author": "MattPlays (https://github.com/MattPlays/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MattPlays/ApexLegends-API/issues"
+  },
+  "homepage": "https://github.com/MattPlays/ApexLegends-API#readme",
+  "dependencies": {
+    "node-fetch": "^2.6.1"
+  }
+}
