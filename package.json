@@ -1,5 +1,5 @@
 {
-  "name": "apex-legends-api",
+  "name": "@mattplays/apexlegends-api",
   "version": "0.0.1",
   "description": "This package is a wrapper for the Apex Legends(Mozambiquehe) API",
   "main": "ApexLegendsAPI.js",
@@ -12,17 +12,7 @@
   },
   "keywords": [
     "API",
-    "Apex",
-    "Legends",
-    "Game",
-    "Lifeline",
-    "Seer",
-    "Bloodhound",
-    "Wraith",
-    "Apex",
-    "Video",
-    "Game",
-    "API",
+    "ApexLegends",
     "GameAPICenter"
   ],
   "author": "MattPlays (https://github.com/MattPlays/)",
