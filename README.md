@@ -38,8 +38,8 @@ This package is a wrapper for the Apex Legends(Mozambiquehe) API
 **This is an Unoffical API** [Unoffical Docs](https://apexlegendsapi.com/documentation.php)
 ### Usage <a id="apex-legends-usage">
 ```javascript
-const GameAPICenter = require("gameapicenter");
-const ApexLegendsAPI = new GameAPICenter.ApexLegendsAPI("DUMMYAPIKEY");
+const {ApexLegendsAPI} = require("@mattplays/apexlegends-api")
+const API = new ApexLegendsAPI("DUMMYAPIKEY");
 ```
 ### Functions <a id="apex-legends-functions">
 #### GetPlayerStatsByName <a id="apex-legends-getplayerstatsbyname">
@@ -52,8 +52,8 @@ const ApexLegendsAPI = new GameAPICenter.ApexLegendsAPI("DUMMYAPIKEY");
 The GetPlayerStatsByName function returns a `Promise<Player[]>` type
 ##### Usage <a id="apex-legends-getplayerstatsbyname-usage">
 ```javascript
-const ApexLegendsAPI = new GameAPICenter.ApexLegendsAPI("DUMMYAPIKEY");
-ApexLegendsAPI.GetPlayerStatsByName("PC", ["DUMMYPLAYER1", "DUMMYPLAYER2"]).then((data) => {
+const API = new ApexLegendsAPI("DUMMYAPIKEY");
+API.GetPlayerStatsByName("PC", ["DUMMYPLAYER1", "DUMMYPLAYER2"]).then((data) => {
 // Your Code Here :D
 });
 ```
@@ -67,8 +67,8 @@ ApexLegendsAPI.GetPlayerStatsByName("PC", ["DUMMYPLAYER1", "DUMMYPLAYER2"]).then
 The GetPlayerStatsByUID function returns a `Promise<Player[]>` type
 ##### Usage <a id="apex-legends-getplayerstatsbyuid-usage">
 ```javascript
-const ApexLegendsAPI = new GameAPICenter.ApexLegendsAPI("DUMMYAPIKEY");
-ApexLegendsAPI.GetPlayerStatsByName("PC", ["1000575543540"]).then((data) => {
+const API = new ApexLegendsAPI("DUMMYAPIKEY");
+API.GetPlayerStatsByName("PC", ["1000575543540"]).then((data) => {
 // Your Code Here :D
 });
 ```
@@ -77,8 +77,8 @@ ApexLegendsAPI.GetPlayerStatsByName("PC", ["1000575543540"]).then((data) => {
 The GetMapRotation function returns a `Promise<MapRotation>` type
 ##### Usage <a id="apex-legends-getmaprotation-usage">
 ```javascript
-const ApexLegendsAPI = new GameAPICetner.ApexLegendsAPI("DUMMYAPIKEY")
-ApexLegends.GetMapRotation().then((data) => {
+const API = new ApexLegendsAPI("DUMMYAPIKEY");
+API.GetMapRotation().then((data) => {
 // Your Code Here :D
 })
 ```
@@ -87,8 +87,8 @@ ApexLegends.GetMapRotation().then((data) => {
 The GetNews function returns a `Promise<News[]>` type
 ##### Usage <a id="apex-legends-getnews-usage">
 ```javascript
-const ApexLegendsAPI = new GameAPICenter.ApexLegendsAPI("DUMMYAPIKEY");
-ApexLegendsAPI.GetNews().then((data) => {
+const API = new ApexLegendsAPI("DUMMYAPIKEY");
+API.GetNews().then((data) => {
 // Your Code Here :D
 });
 ```
@@ -97,8 +97,8 @@ ApexLegendsAPI.GetNews().then((data) => {
 The GetServerStatus function returns a `Promise<ServerStatusResponse>` type
 ##### Usage <a id="apex-legends-getserverstatus-usage">
 ```javascript
-const ApexLegendsAPI = new GameAPICenter.ApexLegendsAPI("DUMMYAPIKEY");
-ApexLegendsAPI.GetServerStatus().then((data) => {
+const API = new ApexLegendsAPI("DUMMYAPIKEY");
+API.GetServerStatus().then((data) => {
 // Your Code Here :D
 });
 ```
@@ -112,8 +112,8 @@ ApexLegendsAPI.GetServerStatus().then((data) => {
 The NameToUID function returns a `Promise<NameToUIDResponse>` type
 ##### Usage <a id="apex-legends-nametouid-usage">
 ```javascript
-const ApexLegendsAPI = new GameAPICenter.ApexLegendsAPI("DUMMYAPIKEY");
-ApexLegendsAPI.NameToUID("DUMMYPLAYER1", "PC").then((data) => {
+const API = new ApexLegendsAPI("DUMMYAPIKEY");
+API.NameToUID("DUMMYPLAYER1", "PC").then((data) => {
 // Your Code Here :D
 });
 ```
@@ -122,7 +122,7 @@ ApexLegendsAPI.NameToUID("DUMMYPLAYER1", "PC").then((data) => {
 #### Player <a id="apex-legends-returntypes-player">
 ##### Legend <a id="apex-legends-returntypes-legend">
 ```typescript
-export type Legend = {
+export interface Legend {
     data: [
         {
             name: string,
@@ -133,15 +133,13 @@ export type Legend = {
         },
     ],
     gameInfo: {
-        badges: [
-            {name: string, value: number}
-        ]
+        badges: {name: string, value: number}[]
     }
     ImgAssets: {icon: string, banner: string}
 }
 ```
 ```typescript
-export type Player = {
+export interface Player {
     global: {
         name: string,
         uid: number,
@@ -163,6 +161,14 @@ export type Player = {
             rankImg: string,
             rankedSeason: string
         },
+        arena: {
+            rankScore: number,
+            rankName: string,
+            rankDiv: number,
+            ladderPosPosition: number,
+            rankImg: string,
+            rankedSeason: string
+        }
         battlepass: {
             level: string,
             history: {
@@ -249,28 +255,14 @@ export type Player = {
         clusterSrv: string
     },
     total: {
-        kills: {name: string, value: number},
-        wins_season_3: {name: string, value: number},
-        wins_season_4: {name: string, value: number},
-        games_played: {name: string, value: number},
-        wins_season_1: {name: string, value: number},
-        creeping_barrage_damage: {name: string, value: number},
-        kills_season_1: {name: string, value: number},
-        wins_season_2: {name: string, value: number},
-        top_3: {name: string, value: number},
-        beast_of_the_hunt_kills: {name: string, value: number},
-        damage: {name: string, value: number},
-        dropped_items_for_squadmates: {name: string, value: number},
-        pistol_kills: {name: string, value: number},
-        beacons_scanned: {name: string, value: number},
-        ar_kills: {name: string, value: number},
-        kd: {name: string, value: number},
+        // Unpredictable
+        // Would need a player who has done X of everything
     }
 }
 ```
 #### MapRotation <a id="apex-legends-returntypes-maprotation">
 ```typescript
-export type MapRotation = {
+export interface MapRotation {
     battle_royale: {
         current: {
             start: number,
@@ -345,7 +337,7 @@ export type MapRotation = {
 ```
 #### News <a id="apex-legends-returntypes-news">
 ```typescript
-export type News = {
+export interface News {
     title: string,
     link: string,
     img: string,
@@ -355,7 +347,7 @@ export type News = {
 #### ServerStatusResponse <a id="apex-legends-returntypes-serverstatusresponse">
 ##### ServerStatus <a id="apex-legends-returntypes-serverstatusresponse-serverstatus">
 ```typescript
-export type ServerStatus = {
+interface ServerStatus {
     Status: string,
     HTTPCode: number,
     ResponseTime: number,
@@ -363,7 +355,7 @@ export type ServerStatus = {
 }
 ```
 ```typescript
-export type ServerStatusResponse = {
+export interface ServerStatusResponse {
     Message: string,
     data: {
         Origin_login: {
@@ -411,13 +403,16 @@ export type ServerStatusResponse = {
             'Playstation-API': ServerStatus,
             'Xbox-API': ServerStatus
         },
-        otherPlatforms: {'Playstaion-Network': ServerStatus, 'Xbox-Live': ServerStatus}
+        otherPlatforms: {
+            'Playstation-Network': ServerStatus, 
+            'Xbox-Live': ServerStatus
+        }
     }
 }
 ```
 #### NameToUIDResponse <a id="apex-legends-returntypes-nametouidresponse">
 ```typescript
-export type NameToUIDResponse = {
+export interface NameToUIDResponse {
     name: string,
     uid: string,
     pid: string,
