@@ -2,10 +2,8 @@
   "name": "@mattplays/apexlegends-api",
   "version": "0.0.1",
   "description": "This package is a wrapper for the Apex Legends(Mozambiquehe) API",
-  "main": "ApexLegendsAPI.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "main": "src/index.js",
+  "types": "types/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MattPlays/ApexLegends-API.git"
