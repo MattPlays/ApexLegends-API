@@ -1,6 +1,6 @@
 {
   "name": "@mattplays/apexlegends-api",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "This package is a wrapper for the Apex Legends(Mozambiquehe) API",
   "main": "src/index.js",
   "types": "types/index.d.ts",
